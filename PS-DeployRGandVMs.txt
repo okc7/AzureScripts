@@ -12,14 +12,19 @@ New-AzResourceGroup -Name $rgName -Location $location
 Get-AzComputeResourceSku | where {$_.Locations.Contains("westeurope") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_D")}    
 
 #Test if deployment will succeed
-Test New-AzResourceGroupDeployment `
+Test-AzResourceGroupDeployment `
    -ResourceGroupName $rgName `
-   -TemplateFile $HOME/vm1-template.json `
-   -TemplateParameterFile $HOME/vm1-parameters.json `
+   -TemplateFile vm1-template.json `
+   -TemplateParameterFile vm1-parameters.json `
+   -verbose
 
-#Deploy
+#Deploy and a couple minutes
 New-AzResourceGroupDeployment `
    -ResourceGroupName $rgName `
-   -TemplateFile $HOME/vm1-template.json `
-   -TemplateParameterFile $HOME/vm1-parameters.json `
-   -AsJob
+   -TemplateFile vm1-template.json `
+   -TemplateParameterFile vm1-parameters.json `
+   -verbose
+## Use  -AsJob parameter if you want do it asynchronous. 
+
+# Remove when you are done
+Get-AzResourceGroup -Name $rgName | Remove-AzResourceGroup -Force -verbose

@@ -16,7 +16,7 @@
     },
     "vmNamePrefix": {
       "type": "string",
-      "defaultValue": "westeu-site0-rg0-vm0",
+      "defaultValue": "site0-rg0-vm0",
       "metadata": {
         "description": "VM name prefix"
       }

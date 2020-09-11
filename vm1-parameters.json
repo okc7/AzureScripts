@@ -9,7 +9,7 @@
             "value": "Pa55w.rd1234"
         },
         "vmNamePrefix": {
-            "value": "westeu-site0-rg0-vm0"
+            "value": "site0-rg0-vm0"
         },
         "nicNamePrefix": {
             "value": "westeu-site0-rg0-vm0-nic0"
