@@ -1,0 +1,25 @@
+#Connect to Azure 
+Connect-AzAccount
+
+#Give Parameters
+$location = 'westeurope'
+
+$rgName = 'westeu-site0-rg0'
+
+New-AzResourceGroup -Name $rgName -Location $location
+
+#Check If VM SKU available in your deployment region
+Get-AzComputeResourceSku | where {$_.Locations.Contains("westeurope") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_D")}    
+
+#Test if deployment will succeed
+Test New-AzResourceGroupDeployment `
+   -ResourceGroupName $rgName `
+   -TemplateFile $HOME/vm1-template.json `
+   -TemplateParameterFile $HOME/vm1-parameters.json `
+
+#Deploy
+New-AzResourceGroupDeployment `
+   -ResourceGroupName $rgName `
+   -TemplateFile $HOME/vm1-template.json `
+   -TemplateParameterFile $HOME/vm1-parameters.json `
+   -AsJob

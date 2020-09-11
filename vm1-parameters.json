@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "value": "Syber"
+        },
+        "adminPassword": {
+            "value": "Pa55w.rd1234"
+        },
+        "vmNamePrefix": {
+            "value": "westeu-site0-rg0-vm0"
+        },
+        "nicNamePrefix": {
+            "value": "westeu-site0-rg0-vm0-nic0"
+        },
+        "imagePublisher": {
+            "value": "MicrosoftWindowsServer"
+        },
+        "imageOffer": {
+            "value": "WindowsServer"
+        },
+        "imageSKU": {
+            "value": "2019-Datacenter"
+        },
+        "vmSize": {
+            "value": "Standard_D2_v2"
+        },
+        "virtualNetworkName": {
+            "value": "westeu-site0-rg0-vnet"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "westeu-site0-rg0"
+        },
+        "subnet0Name": {
+            "value": "subnet0"
+        },
+        "subnet0Prefix": {
+            "value": "10.0.0.0/26"
+        }
+    }
+}
